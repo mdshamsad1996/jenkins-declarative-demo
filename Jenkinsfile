@@ -1,11 +1,15 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('Git Checkout'){
-            steps{
-                git 'https://github.com/mdshamsad1996/jenkins-declarative-demo.git'
+    stages {
+        stage('Stage 1 - Check Python version') {
+            steps {
+                sh 'python --version'
             }
         }
-       
+        stage('Stage 2 - Run hello world') {
+            steps {
+                sh 'python src/hello_world.py'
+            }
+        }
     }
 }
